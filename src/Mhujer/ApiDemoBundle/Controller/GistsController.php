@@ -34,4 +34,17 @@ class GistsController extends FOSRestController
             ]
         );
     }
+
+    /**
+     * Get a single gist
+     *
+     * @ApiDoc()
+     *
+     * @param $id
+     * @return JsonResponse
+     */
+    public function getGistAction($id)
+    {
+        return new JsonResponse(json_decode(file_get_contents(__DIR__ . '/../Data/Gists/getGist.json')));
+    }
 }
