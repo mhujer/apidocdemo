@@ -100,4 +100,17 @@ class GistsController extends FOSRestController
             ]
         );
     }
+
+    /**
+     * List gist commits
+     *
+     * @ApiDoc()
+     *
+     * @param $id
+     * @return JsonResponse
+     */
+    public function getGistCommitsAction($id)
+    {
+        return new JsonResponse(json_decode(file_get_contents(__DIR__ . '/../Data/Gists/getGistCommits.json')));
+    }
 }
