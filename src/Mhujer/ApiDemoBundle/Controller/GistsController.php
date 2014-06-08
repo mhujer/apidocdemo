@@ -113,4 +113,20 @@ class GistsController extends FOSRestController
     {
         return new JsonResponse(json_decode(file_get_contents(__DIR__ . '/../Data/Gists/getGistCommits.json')));
     }
+
+    /**
+     * Delete a gist
+     *
+     * @ApiDoc()
+     *
+     * @param $id
+     * @return JsonResponse
+     */
+    public function deleteGistAction($id)
+    {
+        return new JsonResponse(
+            json_decode(file_get_contents(__DIR__ . '/../Data/Gists/getGistCommits.json')),
+            204
+        );
+    }
 }
