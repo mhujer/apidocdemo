@@ -1,3 +1,3 @@
-mhujer_api_demo_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: MhujerApiDemoBundle:Default:index }
+gists:
+    type:     rest
+    resource: Mhujer\ApiDemoBundle\Controller\GistsController
