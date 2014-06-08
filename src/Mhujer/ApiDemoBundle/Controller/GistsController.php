@@ -47,4 +47,57 @@ class GistsController extends FOSRestController
     {
         return new JsonResponse(json_decode(file_get_contents(__DIR__ . '/../Data/Gists/getGist.json')));
     }
+
+    /**
+     * Create a gist
+     *
+     * Files parameter example:
+     * ```
+     * {
+     *   "description": "the description for this gist",
+     *   "public": true,
+     *   "files": {
+     *     "file1.txt": {
+     *       "content": "String file contents"
+     *     }
+     *   }
+     * }
+     * ```
+     *
+     * @ApiDoc(
+     *      requirements={
+     *          {
+     *              "name"="files",
+     *              "dataType"="hash",
+     *              "description"="The keys in the files hash are the string filename, and the value is another hash with a key of content, and a value of the file contents."
+     *          }
+     *      },
+     *      parameters={
+     *          {
+     *              "name"="description",
+     *              "dataType"="string",
+     *              "required"=false,
+     *              "description"="A description of the gist."
+     *          },
+     *          {
+     *              "name"="public",
+     *              "dataType"="boolean",
+     *              "required"=false,
+     *              "description"="Indicates whether the gist is public. Default: false"
+     *          }
+     *      }
+     * )
+     */
+    public function postGistAction()
+    {
+        return new JsonResponse(
+            json_decode(file_get_contents(__DIR__ . '/../Data/Gists/postGist.json')),
+            201,
+            [
+                'Location' => 'https://api.github.com/gists/1',
+                'X-RateLimit-Limit' => 5000,
+                'X-RateLimit-Remaining' => 4999,
+            ]
+        );
+    }
 }
