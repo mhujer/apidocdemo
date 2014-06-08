@@ -1,0 +1,7 @@
+parameters:
+#    mhujer_api_demo.example.class: Mhujer\ApiDemoBundle\Example
+
+services:
+#    mhujer_api_demo.example:
+#        class: %mhujer_api_demo.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

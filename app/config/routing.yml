@@ -1,0 +1,4 @@
+mhujer_api_demo:
+    resource: "@MhujerApiDemoBundle/Resources/config/routing.yml"
+    prefix:   /
+
